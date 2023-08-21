@@ -1,8 +1,9 @@
 <script lang="ts">
     import icon from "./icons/pen.svg?raw";
+    import { Link } from "$lib/link";
     export let href: string;
 </script>
 
-<a {href} class="edit" title="editar registro">
+<Link {href} class="edit" title="editar registro">
     {@html icon}
-</a>
+</Link>

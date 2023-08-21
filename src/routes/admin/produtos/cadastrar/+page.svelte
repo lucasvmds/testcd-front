@@ -1,6 +1,6 @@
 <script lang="ts">
     import { Back } from "$lib/link";
-    import { Input, Select } from "$lib/form";
+    import { Input } from "$lib/form";
     import type { ProductData, Product } from "$lib/types";
     import { Ajax } from "$lib/ajax";
     import { goto } from "$app/navigation";
@@ -30,7 +30,7 @@
     <h1>Cadastrar produto</h1>
     <form id="form" on:submit|preventDefault={save}>
         <Input type="text" label="Nome" error="name" bind:value={form.name} required size=60 />
-        <Input type="number" label="Valor" error="value" bind:value={form.value} required step=".01" />
+        <Input type="number" label="Valor" error="value" bind:value={form.value} required step=".01" min=".01" />
     </form>
 </main>
 
