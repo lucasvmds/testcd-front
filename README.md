@@ -1,38 +1,11 @@
-# create-svelte
+# Documentação Front End
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Esse projeto foi desenvolvido utilizando o [**SvelteKit**](https://kit.svelte.dev) juntamente com o [**TypeScript**](https://www.typescriptlang.org/).
 
-## Creating a project
+Ele fornece o front end para interagir com a API disponível [**nesse repositório**](https://github.com/lucasvmds/testedc-api).
 
-If you're seeing this, you've probably already done this step. Congrats!
+Você deve configurar o arquivo `.env` com a URL base da API. Por exemplo: por padrão, no `Laravel Sail`, a URL deveria ser `http://localhost/api`. Caso o seu nome de host ou porta sejam diferentes, não esqueça de adicionar o `/api` no final.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+Para executar a aplicação basta instalar as dependencias com o `npm install` e rodar seu ambiente com `npm run dev`.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Após executar a aplicação, você pode visitá-la no endereço `http://localhost:5174`
