@@ -1,0 +1,51 @@
+table.records {
+    border-collapse: collapse;
+    &.center {
+        & td, & th{
+            text-align: center;
+        }
+    }
+    & td, & th {
+        padding: .3em 1em;
+    }
+    & th {
+        font-size: 1.2em;
+        color: var(--accent-color);
+        vertical-align: top;
+        text-align: left;
+    }
+    & > tbody {
+        & td {
+            & > a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: .2em;
+                width: 1.3em;
+                height: 1.3em;
+                color: rgb(var(--action-color));
+                background-color: rgba(var(--action-color), .4);
+                border-radius: .3em;
+                &:not(:last-child) {
+                    margin-right: .5em;
+                }
+                &.edit {
+                    --action-color: 218, 165, 32;
+                    // --action-color: rgb(218, 165, 32);
+                }
+                &.delete, &.disapproved {
+                    --action-color: 255, 0, 0;
+                    // --action-color: rgb(255, 0, 0);
+                }
+                &.restore, &.show {
+                    --action-color: 0, 128, 0;
+                    // --action-color: rgb(0, 128, 0);
+                }
+                &.more {
+                    --action-color: 100, 149, 237;
+                    // --action-color: rgb(100, 149, 237);
+                }
+            }
+        }
+    }
+}

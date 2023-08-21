@@ -1,7 +1,4 @@
-enum UserRole {
-    ADMIN = 'admin',
-    SELLER = 'seller',
-}
+type UserRole = 'admin' | 'seller';
 
 export type User = {
     id: number;
