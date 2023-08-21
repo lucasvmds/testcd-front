@@ -4,21 +4,32 @@
     import { Pagination } from "$lib/pagination";
     import { invalidateAll } from "$app/navigation";
     import { Link } from "$lib/link";
+    import { formatValue as format } from "$lib/support";
+    import { Messages } from "$lib/messages";
     export let data: PageData;
 
-    function reload(): void
-    {
-        invalidateAll();
+    type ProductInUseResponse = {
+        data: {
+            state: 'in_use';
+        }
     }
 
-    function format(value: number): string
+    async function handleResponse(response: Response): Promise<boolean>
     {
-        const formatter = new Intl.NumberFormat('pt-BR', {
-            currency: 'BRL',
-            style: 'currency',
-            maximumFractionDigits: 2,
-        });
-        return formatter.format(value);
+        if (response.status === 204) {
+            invalidateAll();
+            return true;
+        }
+        try {
+            const json: ProductInUseResponse = await response.json();
+            if (json.data.state === 'in_use')
+                    Messages
+                        .error('Erro ao excluir produto')
+                        .warning('Você não pode excluir um produto que já foivinculado a uma venda');
+        } catch (error) {
+            Messages.error(String(error));
+        }
+        return false;
     }
 </script>
 
@@ -44,7 +55,7 @@
                         <td>{format(product.value)}</td>
                         <td>
                             <svelte:component this={actions.edit} href="/admin/produtos/{product.id}" />
-                            <svelte:component this={actions.delete} href="/products/{product.id}" callback={reload} />
+                            <svelte:component this={actions.delete} href="/products/{product.id}" callback={handleResponse} />
                         </td>
                     </tr>
                 {/each}

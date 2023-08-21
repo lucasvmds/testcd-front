@@ -3,7 +3,7 @@
     import { Messages } from "$lib/messages";
     import icon from "./icons/xmark.svg?raw";
     export let href: string;
-    export let callback: (response: Response) => void;
+    export let callback: (response: Response) => Promise<boolean>;
 
     async function destroy(): Promise<void>
     {
@@ -11,8 +11,8 @@
                                     .delete(href)
                                     .send('none');
         if (!response) return;
-        callback(response);
-        Messages.success('Registro excluído com sucesso');
+        const result = await callback(response);
+        if (result) Messages.success('Registro excluído com sucesso');
     }
 </script>
 

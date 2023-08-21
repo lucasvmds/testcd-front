@@ -6,9 +6,10 @@
     import { Link } from "$lib/link";
     export let data: PageData;
 
-    function reload(): void
+    async function reload(): Promise<boolean>
     {
         invalidateAll();
+        return true;
     }
 </script>
 

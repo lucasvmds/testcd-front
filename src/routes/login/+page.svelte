@@ -4,7 +4,7 @@
     import { MessagesComponent } from "$lib/messages";
     import { goto } from "$app/navigation";
     import { Ajax } from "$lib/ajax";
-    import "./page.less";
+    // import "./page.less";
 
     const form: AuthData = {
         email: '',
@@ -31,7 +31,7 @@
     <title>Login | Teste DC</title>
 </svelte:head>
 
-<main id="login-page">
+<main>
     <h1>Entrar</h1>
     <form on:submit|preventDefault={login}>
         <Input type="email" label="E-Mail" bind:value={form.email} error="email" required size="40" />
@@ -46,5 +46,31 @@
         </button>
     </form>
 </main>
-
 <MessagesComponent />
+
+<style lang="less">
+    main {
+        max-width: min-content;
+        margin: 3em auto;
+        background-color: #FFF;
+        padding: 2em;
+        box-shadow: 0 .2em 2em rgba(0, 0, 0, .05);
+        grid-area: 1/1/1/span 2;
+        & > h1 {
+            text-align: center;
+        }
+        & > form {
+            text-align: right;
+            & > button {
+                margin: 2em auto 0;
+                display: block;
+                padding: .7em 2em;
+                font-size: 1.1em;
+                font-weight: 400;
+                color: #FFF;
+                background-color: var(--accent-color);
+                border-radius: 3em;
+            }
+        }
+    }
+</style>
