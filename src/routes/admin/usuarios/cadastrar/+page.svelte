@@ -1,7 +1,7 @@
 <script lang="ts">
     import { Back } from "$lib/link";
     import { Input, Select } from "$lib/form";
-    import type { UserData, User } from "$lib/types/user";
+    import type { UserData, User } from "$lib/types";
     import { Ajax } from "$lib/ajax";
     import { goto } from "$app/navigation";
     import { Messages } from "$lib/messages";
