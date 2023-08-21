@@ -1,0 +1,75 @@
+#app {
+    display: grid;
+    grid-template: min-content 100% / min-content auto;
+    gap: 1em;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    & > #app-header {
+        grid-area: 1/1/span 2/1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1em;
+        height: 100vh;
+        color: #FFF;
+        background-color: var(--accent-color);
+        & > nav {
+            display: flex;
+            gap: 2em;
+            flex-direction: column;
+            align-items: baseline;
+            & > a, & > button {
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+        & > div {
+            text-align: center;
+            white-space: nowrap;
+            & > a {
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                width: 2em;
+                height: 2em;
+                background-color: #FFF;
+                color: var(--accent-color);
+                border-radius: 100%;
+                &:last-child {
+                    margin-left: .5em;
+                }
+            }
+        }
+    }
+    
+    & > #app-main {
+        align-self: baseline;
+        justify-self: baseline;
+        padding: 2em;
+        margin-right: 1em;
+        max-height: calc(100% - 4em);
+        max-width: 100%;
+        background-color: #FFF;
+        border-radius: 1em;
+        box-shadow: 0 .2em 2em rgba(0, 0, 0, .05);
+        overflow: auto;
+    }
+    
+    & > #app-aside {
+        grid-area: 1/2/1/2;
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        margin-top: 1em;
+    
+        & > a, & > button, & > span {
+            padding: .7em 1em;
+            background-color: #FFF;
+            border-radius: 2em;
+            box-shadow: 0 .2em 2em rgba(0, 0, 0, .05);
+        }
+    }
+}

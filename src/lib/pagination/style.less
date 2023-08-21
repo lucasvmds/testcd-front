@@ -1,0 +1,21 @@
+form.pagination-component {
+    margin-top: 2em;
+    text-align: right;
+    & > span {
+        display: inline-block;
+        margin-bottom: .5em;
+    }
+    & > button {
+        margin-left: .5em;
+        font-size: 1.5em;
+        vertical-align: middle;
+        &:disabled {
+            opacity: .3;
+            cursor: not-allowed;
+        }
+    }
+    
+    & > .input-component {
+        vertical-align: middle;
+    }
+}
